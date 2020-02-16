@@ -1,0 +1,1356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000; min-height: 16.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 13.0px 'PingFang SC'; font-kerning: none}
+    span.s3 {font: 13.0px 'PingFang SC'; font-kerning: none; -webkit-text-stroke: 0px #000000}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* SCF_GATEWAY</span><span class="s2">：</span><span class="s1">SCF </span><span class="s2">云函数网关地址</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* SITE_NAME</span><span class="s2">：站点名称</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.GLOBAL_CONFIG = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>SCF_GATEWAY: "https://lively-boat-2377.dmdm.workers.dev",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>SITE_NAME: “</span><span class="s3">DM’s FODI</span><span class="s1">”,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>IS_CF: true</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (window.GLOBAL_CONFIG.SCF_GATEWAY.indexOf('workers') === -1) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.GLOBAL_CONFIG.SCF_GATEWAY += '/fodi/';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.GLOBAL_CONFIG.IS_CF = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// if (location.protocol === 'http:') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// <span class="Apple-converted-space">    </span>location.href = location.href.replace(/http/, 'https');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="utf-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="//s0.pstatp.com/cdn/expire-1-M/ionicons/4.5.6/ionicons.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="//s0.pstatp.com/cdn/expire-1-M/marked/0.6.2/marked.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="//s0.pstatp.com/cdn/expire-1-M/highlight.js/9.15.6/highlight.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="//s0.pstatp.com/cdn/expire-1-M/highlight.js/9.15.6/styles/github.min.css" rel="stylesheet" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="//s0.pstatp.com/cdn/expire-1-M/github-markdown-css/3.0.1/github-markdown.min.css" rel="stylesheet" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="//s0.pstatp.com/cdn/expire-1-M/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="//s0.pstatp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="//s0.pstatp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.password-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.password {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-top: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.password input {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>outline: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: solid rgb(218, 215, 215) 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.password button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>outline: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: solid rgb(218, 215, 215) 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.password button:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgb(218, 215, 215);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>pre * {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Courier New;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.preview {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: .8em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.content {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>clear: both;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.file-name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 1em 1em 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>float: right;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: solid rgb(218, 215, 215) 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 1em .2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 4em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-moz-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-o-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-khtml-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-ms-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgb(218, 215, 215);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn.download {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-right: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#arrow-back,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#arrow-forward {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: rgb(218, 215, 215);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.loading-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: .5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.loading {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgb(218, 215, 215);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 8em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ion-icon {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.markdown-body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-width: 200px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: .7em 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: .8em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.markdown-body h1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h2,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h3,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h4,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h5,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h6 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.markdown-body img {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 90%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 800px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.header-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-moz-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-o-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-khtml-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-ms-user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.header {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 1.8em 0 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: solid rgb(218, 215, 215) 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.logo {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-right: .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.site {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/* margin-left: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding-left: 2em; */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-path,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-arr {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 1.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-right: .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: default;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#main-page:hover,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-path:hover,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.tree-node:hover,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.row.file-wrapper:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: rgb(90, 101, 133);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: calc(100% - 3em);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.main {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.left {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: inline-grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 20%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: .8em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: scroll;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.tree-node-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: 1.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.tree-node {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.tree-node-name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.right {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 80%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: 20%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: scroll;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.row {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 .8em 0 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: solid rgb(218, 215, 215) 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.row.file-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: .8em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.file {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 70%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-left: .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.list-header .name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: calc(70% + 1.1em);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.time {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: right;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 133px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.size {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media screen and (max-width: 1000px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.left {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.right {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>margin-left: initial;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media screen and (max-width: 800px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 60%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.list-header .name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: calc(60% + 1.1em);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.file-name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>overflow-x: scroll;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media screen and (max-width: 600px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 75%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.time {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.header {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 0 .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.row {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 0 .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.row.file-wrapper {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 0 .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height: 3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.markdown-body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: .6em .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.file-name {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 1em .3em 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.content {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 0 .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.btn.download {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>margin-right: .3em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.logo {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function createCORSRequest(method, url, timeout) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let xhr = new XMLHttpRequest();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if ('withCredentials' in xhr) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr.open(method, url, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (typeof XDomainRequest !== 'undefined') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr = new XDomainRequest();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr.open(method, url);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (xhr) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr.timeout = timeout;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return xhr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function sendRequest(method, url, data, headers, callback, error, times) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let xhr = createCORSRequest(method, url, 2500);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>xhr.onreadystatechange = () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>callback(xhr.responseText);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>xhr.timeout = xhr.onerror = () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!times) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>times = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>console.log({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>url: url,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>data: data,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>times: times</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (times &lt; 1) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>sendRequest(method, url, data, headers, callback, error, times + 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (typeof error === 'function') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>error();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (headers) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (key in headers) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (headers.hasOwnProperty(key)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>xhr.setRequestHeader(key, headers[key]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (data) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr.send(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>xhr.send();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function renderPage(data, cache) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let files;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (data) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>files = JSON.parse(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.fileCache.set(files.parent, files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>preCache(files, 0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>files = cache;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (files.parent === window.backFordwardCache.current) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderPath(files.parent);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (files.encrypted) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>handleEncryptedFolder(files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>renderFileList(files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderTreeNode(files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (document.body.getAttribute('hidden')) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.body.removeAttribute('hidden');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.querySelector('.loading-wrapper').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function renderPath(path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const createPathSpan = (text, path) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let pathSpan = document.createElement('span');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>pathSpan.innerHTML = text.length &gt; 20 ? text.substring(0, 20) + '..' : text;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>pathSpan.className = text === '/' ? 'nav-arr' : 'nav-path';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>addPathListener(pathSpan, path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return pathSpan;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const paths = path.split('/');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let pathSpanWrapper = document.getElementById('path');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pathSpanWrapper.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pathSpanWrapper.appendChild(createPathSpan(window.api.root));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let continualPath = '/';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt; paths.length - 1; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>continualPath += paths[i];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>pathSpanWrapper.appendChild(createPathSpan(paths[i], continualPath));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>pathSpanWrapper.appendChild(createPathSpan('/'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>continualPath += '/';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pathSpanWrapper.appendChild(createPathSpan(paths[paths.length - 1]));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function renderFileList(files) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>switchRightDisplay();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const createFileWrapper = (type, name, time, size, path, url) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let fileWrapper = document.getElementById('file-wrapper-templete').content.cloneNode(true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fileWrapper.querySelector('ion-icon').setAttribute('name', type);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fileWrapper.querySelector('.name').innerHTML = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fileWrapper.querySelector('.time').innerHTML = time;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fileWrapper.querySelector('.size').innerHTML = size;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addFileListLineListener(fileWrapper.querySelector('.row.file-wrapper'), path, url, size);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return fileWrapper;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const formatDate = date =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const addZero = num =&gt; num &gt; 9 ? num : '0' + num;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>date = new Date(date);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const year = date.getFullYear();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const month = addZero(date.getMonth() + 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const day = addZero(date.getDate());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const hour = addZero(date.getHours());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const minute = addZero(date.getMinutes());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const second = addZero(date.getSeconds());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return 'yyyy-MM-dd HH:mm:ss'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('yyyy', year)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('MM', month)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('dd', day)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('HH', hour)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('mm', minute)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.replace('ss', second);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const formatSize = size =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let count = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>while (size &gt;= 1024) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>size /= 1024;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>count++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>size = size.toFixed(2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switch (count) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 1:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' KB';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 2:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' MB';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 3:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' GB';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 4:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' TB';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 5:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' PB';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>default:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>size += ' B';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return size;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let fileList = document.getElementById('file-list');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>fileList.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>files.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (file.name.split('.').pop() === 'md') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>renderReadme(files.parent + '/' + file.name, file.url);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const parent = files.parent === window.api.root ? '' : files.parent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fileList.appendChild(createFileWrapper(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>file.url ? 'document' : 'folder',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>file.name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>formatDate(file.time),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>formatSize(file.size),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>parent + '/' + file.name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>file.url</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>async function renderTreeNode(files) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const createTreeNodeWrapper = (array, type, name, path) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let treeNodeWrapper = document.getElementById('tree-node-wrapper-template').content</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.cloneNode(true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let icons = treeNodeWrapper.querySelectorAll('ion-icon');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>icons[0].setAttribute('name', array);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>icons[1].setAttribute('name', type);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>treeNodeWrapper.querySelector('.tree-node-name').innerText = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>treeNodeWrapper.appendNode = node =&gt; treeNodeWrapper.querySelector('.tree-node-wrapper').append(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>node);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addTreeNodeListener(treeNodeWrapper.querySelector('.tree-node'), path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return treeNodeWrapper;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const paths = files.parent.split('/');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let absolutePath = max =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let absolutePath = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let j = 1; j &lt;= max; j++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>absolutePath += '/' + paths[j];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return absolutePath;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let maxIndex = paths.length - 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let currentTreeNode = createTreeNodeWrapper('arrow-dropdown',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'folder-open',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>paths[maxIndex],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>absolutePath(maxIndex)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>files.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>currentTreeNode.appendNode(createTreeNodeWrapper('arrow-dropright',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'folder',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>file.name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>files.parent + '/' + file.name</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = maxIndex - 1; i &gt; 0; i--) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const currentTreeNodeParentAbsolutePath = absolutePath(i);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let currentTreeNodeParent = createTreeNodeWrapper('arrow-dropdown',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'folder',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>paths[i],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>currentTreeNodeParentAbsolutePath</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let cache = window.fileCache.get(currentTreeNodeParentAbsolutePath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (cache) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>cache.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (file.name === paths[i + 1]) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>currentTreeNodeParent.appendNode(currentTreeNode);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>currentTreeNodeParent.appendNode(createTreeNodeWrapper(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>'arrow-dropright',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>'folder',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>file.name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>currentTreeNodeParentAbsolutePath + '/' + file.name</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>currentTreeNodeParent.appendNode(currentTreeNode);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>currentTreeNode = currentTreeNodeParent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const treeRoot = document.getElementById('tree-root');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>treeRoot.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const cache = window.fileCache.get(window.api.root);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const currentNodeName = currentTreeNode.querySelector('.tree-node-name').innerText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (cache) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>cache.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (file.name === currentNodeName) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>treeRoot.append(currentTreeNode);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>treeRoot.append(createTreeNodeWrapper(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'arrow-dropright',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'folder',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>file.name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.api.root + file.name</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>treeRoot.append(currentTreeNode);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>async function renderReadme(path, url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const render = text =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let markedText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>markedText = marked(text, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gfm: true,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>highlight: (code, lang, callback) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>return hljs.highlight(lang, code).value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>markedText = marked(text, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gfm: true,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>highlight: (code, lang, callback) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>return hljs.highlight('bash', code).value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (window.backFordwardCache.current + '/README.md' === path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!window.backFordwardCache.preview) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>document.getElementById('readme').innerHTML = markedText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>document.querySelector('.markdown-body').style.display = 'block';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let cache = window.fileCache.get(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!cache || cache === true) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.fileCache.set(path, text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let text = window.fileCache.get(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (text === true) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let cacheWaitReadmeFetch = setInterval(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>text = window.fileCache.get(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (typeof text === 'object') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>render(text, path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>clearInterval(cacheWaitReadmeFetch);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else if (text === false) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>clearInterval(cacheWaitReadmeFetch);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 100);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (text) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>render(text, path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.fileCache.set(path, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>sendRequest('GET', url, null, null, text =&gt; render(text, path), () =&gt; window.fileCache.set(path, false));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function handleEncryptedFolder(files) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>switchRightDisplay('encrypted');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const password = document.querySelector('.password');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const input = password.querySelector('input');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const button = password.querySelector('button');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const buttonParent = button.parentElement;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const buttonClone = button.cloneNode(true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>buttonParent.replaceChild(buttonClone, button);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>input.placeholder = '</span><span class="s2">请输入密码</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>buttonClone.addEventListener('click', event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const passwd = input.value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!input.value) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>input.value = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>input.placeholder = '</span><span class="s2">正在验证</span><span class="s1">..';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>sendRequest(window.api.method,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.url,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.formatPayload(files.parent, passwd),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.headers,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const newFiles = JSON.parse(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (newFiles.encrypted) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>input.placeholder = '</span><span class="s2">密码错误</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.fileCache.set(newFiles.parent, newFiles);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>fetchFileList(newFiles.parent);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>() =&gt; window.fileCache.set(newFiles.parent, false)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addPathListener(elem, path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>elem.addEventListener('click', event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switchBackForwardStatus(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addTreeNodeListener(elem, path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>elem.addEventListener('click', event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switchBackForwardStatus(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addFileListLineListener(elem, path, url, size) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>elem.addEventListener('click', event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.backFordwardCache.preview = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const previewHandler = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>copyTextContent: (source, text) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let result = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let target = document.createElement('pre');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>target.style.opacity = '0';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>target.textContent = text || source.textContent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>document.body.appendChild(target);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>let range = document.createRange();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>range.selectNode(target);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.getSelection().removeAllRanges();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.getSelection().addRange(range);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>document.execCommand('copy');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.getSelection().removeAllRanges();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>result = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} catch (e) { }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>document.body.removeChild(target);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>return result;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>fileType: suffix =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>Array.prototype.contains = function (search) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>const object = this;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>for (const key in object) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>if (object.hasOwnProperty(key)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>if ((eval('/' + search + '/i')).test(object[key])) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>return true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (['bmp', 'jpg', 'png', 'svg', 'webp', 'gif'].contains(suffix)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return 'image';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else if (['mp3', 'flac', 'wav'].contains(suffix)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return 'audio';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else if (['mp4', 'avi', 'mkv', 'flv', 'm3u8'].contains(suffix)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return 'video';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>[</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>'txt', 'js', 'json', 'css', 'html', 'java', 'c', 'cpp', 'php',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>'cmd', 'ps1',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>'bat', 'sh', 'py', 'go', 'asp',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>].contains(suffix)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return 'text';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mpp', 'rtf', 'vsd', 'vsdx'].contains(suffix)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return 'office';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>loadResource: (resource, callback) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let type;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>switch (resource.split('.').pop()) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>case 'css':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>type = 'link';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>case 'js':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>type = 'script';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let element = document.createElement(type);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let loaded = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (typeof callback === 'function') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>element.onload = element.onreadystatechange = () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>if (!loaded &amp;&amp; (!element.readyState || /loaded|complete/.test(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>element.readyState))) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>element.onload = element.onreadystatechange = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>loaded = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>callback();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (type === 'link') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>element.href = resource;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>element.rel = 'stylesheet';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>element.src = resource;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>document.getElementsByTagName('head')[0].appendChild(element);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>createDplayer: (video, type, elem) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const host = '//s0.pstatp.com/cdn/expire-1-M';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const resources = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'/dplayer/1.25.0/DPlayer.min.css',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'/dplayer/1.25.0/DPlayer.min.js',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'/hls.js/0.12.4/hls.light.min.js',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'/flv.js/1.5.0/flv.min.js'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let unloadedResourceCount = resources.length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>resources.forEach(resource =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>previewHandler.loadResource(host + resource, () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>if (!--unloadedResourceCount) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>let option = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>url: video</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>if (type === 'flv') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>option.type = 'flv';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>new DPlayer({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>container: elem,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>screenshot: true,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>video: option</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const suffix = path.split('.').pop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let content = document.querySelector('.content');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>switch (previewHandler.fileType(suffix)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>case 'image':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let img = new Image();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>img.style.maxWidth = '100%';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>img.src = url;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let fancy = document.createElement('a');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>fancy.setAttribute('data-fancybox', 'image');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>fancy.href = img.src;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>fancy.append(img);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.append(fancy);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>case 'audio':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let audio = new Audio();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>audio.style.outline = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>audio.preload = 'auto';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>audio.controls = 'controls';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>audio.style.width = '100%';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>audio.src = url;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.append(audio);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>case 'video':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let video = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>previewHandler.createDplayer(url, suffix, video);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.append(video);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>case 'text':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let pre = document.createElement('pre');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let code = document.createElement('code');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>pre.append(code);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>pre.style.background = 'rgb(245,245,245)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>pre.style['overflow-x'] = 'scroll';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>pre.classList.add(suffix);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.style['text-align'] = 'initial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.append(pre);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>sendRequest('GET', url, null, null, data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>code.textContent = data;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>if (size.indexOf(' B') &gt;= 0 || size.indexOf(' KB') &amp;&amp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>size.split(' ')[0] &lt; 100</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>hljs.highlightBlock(pre);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>case 'office':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const officeOnline = '//view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let div = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.style.lineHeight = '2em';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.style.background = 'rgba(218, 215, 215, 0.21)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.style.webkitTapHighlightColor = 'rgba(0, 0, 0, 0)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.style.cursor = 'pointer';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.innerHTML = '</span><span class="s2">新窗口打开</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>div.addEventListener('click', () =&gt; window.open(officeOnline));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.appendChild(div);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (document.body.clientWidth &gt;= 480) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>let iframe = document.createElement('iframe');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>iframe.width = '100%';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>iframe.style.height = '41em';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>iframe.style.border = '0';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>iframe.src = officeOnline;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>content.appendChild(iframe);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>default:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.style['text-align'] = 'center';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>content.innerHTML = '</span><span class="s2">该文件不支持预览</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>break;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.file-name').innerHTML = path;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.btn.download').addEventListener('click',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>() =&gt; location.href = url</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.btn.quote').addEventListener('click',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>previewHandler.copyTextContent(null, window.api.url + '?file=' + path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const btn = document.querySelector('.btn.quote');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.innerHTML = '</span><span class="s2">已复制</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>setTimeout(() =&gt; btn.innerHTML = '</span><span class="s2">引用</span><span class="s1">', 250);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.btn.share').addEventListener('click',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const sharePath = () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>let arr = window.backFordwardCache.current.split('/');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>let r = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>for (let i = 1; i &lt; arr.length; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>r += '/' + arr[i];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>return r;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>previewHandler.copyTextContent(null,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.location.origin +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.location.pathname +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>'?path=' + sharePath());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const btn = document.querySelector('.btn.share');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.innerHTML = '</span><span class="s2">已复制</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>setTimeout(() =&gt; btn.innerHTML = '</span><span class="s2">分享</span><span class="s1">', 250);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>switchRightDisplay('preview');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let start = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let right = document.querySelector('.right');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const scrollToBottom = (timestamp) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!start) start = timestamp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>let progress = timestamp - start;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>let last = right.scrollTop;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>right.scrollTo(0, right.scrollTop + 14);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (right.scrollTop !== last &amp;&amp; progress &lt; 1000 * 2) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.requestAnimationFrame(scrollToBottom);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.requestAnimationFrame(scrollToBottom);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>elem.addEventListener('click', event =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fetchFileList(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>switchBackForwardStatus(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addBackForwardListener() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('arrow-back').addEventListener('click', back);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('arrow-forward').addEventListener('click', forward);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.querySelector('#main-page').addEventListener('click', () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(window.api.root);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switchBackForwardStatus(window.api.root);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function switchRightDisplay(display) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (display === 'preview') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.list-header').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('#file-list').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.markdown-body').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.password').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.preview').style.display = 'initial'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (display === 'encrypted') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.list-header').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('#file-list').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.markdown-body').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.preview').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.password').style.display = 'initial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('#readme').innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let content = document.querySelector('.preview .content');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (content) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.preview .content').innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.list-header').style.display = 'initial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('#file-list').style.display = 'initial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.markdown-body').style.display = 'none'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.preview').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('.password').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelector('#readme').innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let content = document.querySelector('.preview .content');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (content) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.preview .content').innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function switchBackForwardStatus(path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.deepest = path;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (window.backFordwardCache.root !== window.backFordwardCache.current) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.backable = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('arrow-back').style.color = 'black';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.backable = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('arrow-back').style.color = 'rgb(218, 215, 215)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (window.backFordwardCache.deepest !== window.backFordwardCache.current) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.forwardable = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('arrow-forward').style.color = 'black';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.forwardable = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('arrow-forward').style.color = 'rgb(218, 215, 215)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function back() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!window.backFordwardCache.backable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (window.backFordwardCache.preview) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(window.backFordwardCache.current);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let former = (() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let formerEndIndex = window.backFordwardCache.current.lastIndexOf('/');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return window.backFordwardCache.current.substring(0, formerEndIndex);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>})();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>former = former || window.api.root;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(former);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switchBackForwardStatus();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// console.log(window.backFordwardCache);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function forward() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!window.backFordwardCache.forwardable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const current = window.backFordwardCache.current === window.api.root ? '' : window.backFordwardCache.current</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const subLength = current ? current.length : 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const later = current + '/' +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.backFordwardCache.deepest.substring(subLength).split('/')[1];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>fetchFileList(later);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>switchBackForwardStatus();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// console.log(window.backFordwardCache);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>async function preCache(files, level) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (level &gt; 2) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>files.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const parent = files.parent === '/' ? '' : files.parent</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const path = parent + '/' + file.name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// console.log('caching ' + path + ', level ' + level);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.fileCache.set(path, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>sendRequest(window.api.method,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.api.url,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.api.formatPayload(path),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.api.headers,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const files = JSON.parse(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.fileCache.set(path, files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>preCache(files, level + 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>() =&gt; window.fileCache.set(path, false)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (file.name.split('.').pop() === 'md') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// console.log('caching ' + path + ', level ' + level);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.fileCache.set(path, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>sendRequest('GET', file.url, null, null, text =&gt; window.fileCache.set(path, text), () =&gt; window.fileCache.set(path, false));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>async function preCacheCheck(cache, path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cache.files.forEach(file =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const prefix = path === window.api.root ? '' : path;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const nextPath = prefix + '/' + file.name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const pathCache = window.fileCache.get(nextPath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!file.url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!pathCache &amp;&amp; pathCache !== true) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// console.log('inner caching ' + nextPath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.fileCache.set(nextPath, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>sendRequest(window.api.method,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.api.url,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.api.formatPayload(nextPath),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>window.api.headers,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>const files = JSON.parse(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>window.fileCache.set(nextPath, files);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>preCache(files, 0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>() =&gt; window.fileCache.set(nextPath, false)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (file.name.split('.').pop() === 'md') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!pathCache &amp;&amp; pathCache !== true) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// console.log('inner caching ' + nextPath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.fileCache.set(nextPath, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>sendRequest('GET', file.url, null, null, text =&gt; window.fileCache.set(nextPath,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>text), () =&gt; window.fileCache.set(nextPath,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>false));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function fetchFileList(path) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// console.log('fetching ' + path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let loading = document.querySelector('.loading-wrapper');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loading.style.display = 'initial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.backFordwardCache.preview = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.backFordwardCache.current = path;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let cache = window.fileCache.get(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (cache === true) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let cacheWaitFileListFetch = setInterval(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>cache = window.fileCache.get(path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (typeof cache === 'object') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>renderPage(null, cache);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>preCacheCheck(cache, path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>clearInterval(cacheWaitFileListFetch);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else if (cache === false) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>clearInterval(cacheWaitFileListFetch);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>loading.style.color = 'red';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>loading.innerText = 'Failed!';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>loading.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>loading.style.color = 'white';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>loading.innerText = 'Loading..';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}, 2000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 100);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (cache) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderPage(null, cache);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>preCacheCheck(cache, path);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.fileCache.set(path, true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>sendRequest(window.api.method,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.url,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.formatPayload(path),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.headers,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>renderPage</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.title = window.GLOBAL_CONFIG.SITE_NAME;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.querySelector('.site').textContent = window.GLOBAL_CONFIG.SITE_NAME;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.api = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>root: '/',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>url: window.GLOBAL_CONFIG.SCF_GATEWAY,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>method: 'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>formatPayload: (path, passwd) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return '?path=' + encodeURIComponent(path) +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&amp;encrypted=' + window.api.accessToken.encrypted +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&amp;plain=' + window.api.accessToken.plain +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&amp;passwd=' + passwd;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>headers: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'Content-type': 'application/x-www-form-urlencoded'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.backFordwardCache = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>root: window.api.root,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>deepest: window.api.root,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>current: window.api.root,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>backable: false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>forwardable: false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>preview: false</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.fileCache = new Map();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const initialPath = new URLSearchParams(window.location.search).get('path') || window.api.root;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (window.GLOBAL_CONFIG.IS_CF) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.api.accessToken = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>encrypted: '',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>plain: ''</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>fetchFileList(initialPath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addBackForwardListener();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>sendRequest(window.api.method,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.url + '?accessToken',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>null,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.api.headers,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const accessToken = JSON.parse(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>window.api.accessToken = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>encrypted: accessToken.encrypted,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>plain: accessToken.plain</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>fetchFileList(initialPath);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>addBackForwardListener();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;body hidden="hidden"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;template id="tree-node-wrapper-template"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="tree-node-wrapper"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="tree-node"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ion-icon&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ion-icon&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="tree-node-name"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/template&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;template id="file-wrapper-templete"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="row file-wrapper"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="file"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ion-icon&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="name"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="time"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="size"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/template&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="loading-wrapper"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="loading"&gt;Loading...&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="header-wrapper"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ion-icon id="arrow-back" class="logo" name="arrow-back"&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ion-icon id="arrow-forward" class="logo" name="arrow-forward"&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ion-icon id="main-page" class="logo" name="folder"&gt;&lt;/ion-icon&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="nav"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span id="path"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span class="site" id="nav-site"&gt;ONEDRIVE&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="main"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="left"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="tree-root"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="right"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="list-header"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="row"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="file"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="name"&gt;ITEMS&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="time"&gt;TIME&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="size"&gt;SIZE&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="file-list"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="markdown-body"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div id="readme"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="preview"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="info"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="file-name"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="btn download"&gt;</span><span class="s2">下载</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="btn quote"&gt;</span><span class="s2">引用</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="btn share"&gt;</span><span class="s2">分享</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="content"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="password-wrapper"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="password"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="password"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button&gt;</span><span class="s2">提交</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
